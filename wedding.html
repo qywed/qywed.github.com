@@ -1,15 +1,15 @@
-<html>
+ï»¿<html>
   <head>
     <meta charset="UTF-8">
-    <title>Î¢Ï²Ìù-ÕÅçù&µËÓ½Ã·</title>
+    <title>å¾®å–œè´´-å¼ ç¦&é‚“å’æ¢…</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script language="javascript">
-      var imgUrl = "http://server.fjqyx.com:8079/userPhoto/3105/46950/S003.jpg";  //×¢Òâ±ØĞëÊÇ¾ø¶ÔÂ·¾¶
+      var imgUrl = "http://server.fjqyx.com:8079/userPhoto/3105/46950/S003.jpg";  //æ³¨æ„å¿…é¡»æ˜¯ç»å¯¹è·¯å¾„
 
-       var lineLink = "http://www.huceo.com/wdt.html";   //Í¬Ñù£¬±ØĞëÊÇ¾ø¶ÔÂ·¾¶
-       var descContent = 'Ê±¼ä: 2016-9-28 12:00\r\nµØµã: ºş±±Ê¡»Æ¸ÔÊĞŞ­´ºÏØÕÅ°ñÕò'; //·ÖÏí¸øÅóÓÑ»òÅóÓÑÈ¦Ê±µÄÎÄ×Ö¼ò½é
-       var shareTitle = 'ÕÅçù&µËÓ½Ã·';  //·ÖÏítitle
-       var appid = ''; //apiID£¬¿ÉÁô¿Õ
+       var lineLink = "https://qywed.github.io/wedding.html";   //åŒæ ·ï¼Œå¿…é¡»æ˜¯ç»å¯¹è·¯å¾„
+       var descContent = 'æ—¶é—´: 2016-9-28 12:00\r\nåœ°ç‚¹: æ¹–åŒ—çœé»„å†ˆå¸‚è•²æ˜¥å¿å¼ æ¦œé•‡'; //åˆ†äº«ç»™æœ‹å‹æˆ–æœ‹å‹åœˆæ—¶çš„æ–‡å­—ç®€ä»‹
+       var shareTitle = 'å¼ ç¦&é‚“å’æ¢…';  //åˆ†äº«title
+       var appid = ''; //apiIDï¼Œå¯ç•™ç©º
        
        function shareFriend() {
            WeixinJSBridge.invoke('sendAppMessage',{
@@ -44,17 +44,17 @@
                //_report('weibo', res.err_msg);
            });
        }
-       // µ±Î¢ĞÅÄÚÖÃä¯ÀÀÆ÷Íê³ÉÄÚ²¿³õÊ¼»¯ºó»á´¥·¢WeixinJSBridgeReadyÊÂ¼ş¡£
+       // å½“å¾®ä¿¡å†…ç½®æµè§ˆå™¨å®Œæˆå†…éƒ¨åˆå§‹åŒ–åä¼šè§¦å‘WeixinJSBridgeReadyäº‹ä»¶ã€‚
        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-           // ·¢ËÍ¸øºÃÓÑ
+           // å‘é€ç»™å¥½å‹
            WeixinJSBridge.on('menu:share:appmessage', function(argv){
                shareFriend();
            });
-           // ·ÖÏíµ½ÅóÓÑÈ¦
+           // åˆ†äº«åˆ°æœ‹å‹åœˆ
            WeixinJSBridge.on('menu:share:timeline', function(argv){
                shareTimeline();
            });
-           // ·ÖÏíµ½Î¢²©
+           // åˆ†äº«åˆ°å¾®åš
            WeixinJSBridge.on('menu:share:weibo', function(argv){
                shareWeibo();
            });
@@ -62,5 +62,16 @@
     </script>
   </head>
   <body>
+    <center>
+      <div style="position:relative">
+        <img src="http://m.fjqyx.com/invite/templates/template4/img/cover.png" />
+        <div style="position:absolute;left:50%;bottom:100px;z-index:10" border=1>
+          <i>
+            <p>2016å¹´09æœˆ28æ—¥</p>
+            <p>æ–°éƒ : å¼ ç¦   æ–°å¨˜ : é‚“å’æ¢…</p>      
+          </i>
+        </div>
+      </div>
+    </center>
   </body>
 </html>
