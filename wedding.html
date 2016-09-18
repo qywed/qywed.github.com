@@ -78,7 +78,12 @@
 .next1{ position:absolute; top:150px; right:10px; width:28px; height:51px;z-index:9;cursor:pointer;}
 .mhc{ background:#000; width:100%;opacity:0.5;-moz-opacity:0.5;filter:alpha(Opacity=50); position:absolute; left:0; top:0; display:none;}
 
-#float_dlg{position: fixed;top:10px;left: 20px;animation: spin 6s linear infinite;}
+.floatdlg{position: fixed;top:10px;left: 20px;}
+.floatdlg.ani{
+  animation: spin 6s linear infinite;
+  -webkit-animation: spin 6s linear infinite;
+}
+
 #bNav, #bNav2{text-align:center;}
 /*动画方法*/
 @-webkit-keyframes spin {
@@ -87,6 +92,14 @@
  }
  100% {
        -webkit-transform:rotate(360deg);
+ }
+}
+@keyframes spin {
+0% {
+       transform:rotate(0deg);
+ }
+ 100% {
+       transform:rotate(360deg);
  }
 }
   </style>
@@ -170,11 +183,17 @@
         </font>
       </div>
     </div>
-    <div id="float_dlg">
+    <div background="http://m.fjqyx.com/invite/templates/template4/img/box-border.png">
+      <font size="3">
+        <p>时间: 2016年09月28日</p><br />
+        <p>地点: 湖北省黄冈市蕲春县张榜镇塔林街130号</p>
+      </font>
+    </div>
+    <div id="float_dlg" class="floatdlg">
       <img id="fbtn" src="http://m.fjqyx.com/invite/templates/template4/img/music-button.png" onclick="fonclick();">
     </div>
     <script type="text/javascript">
-      var status = true;
+      var pstatus = false;
       var floatDlg=document.getElementById("float_dlg");
 
       function audioAutoPlay(id){
@@ -188,18 +207,19 @@
           audio.play();
         }, false);
       }
-    audioAutoPlay('bgmusic');
+      audioAutoPlay('bgmusic');
       
       function fonclick(){
-        var bgmusic = document.getElementById("bgmusic");
-        if (status){          
-          bgmusic.stop();
-          floatDlg.style.webkitAnimationPlayState = "pause";
+        var bgmusic = document.getElementById("bgmusic");        
+        if (pstatus){       
+          floatDlg.classList.remove('ani');          
+          bgmusic.pause();
+          pstatus=false;
         }else{
+          floatDlg.classList.add('ani');
           bgmusic.play();
-          floatDlg.style.webkitAnimationPlayState = "running";
+          pstatus=true;
         }
-        status = !status
       }
     </script>
     <script type="text/javascript" src="js/pic_tab.js"></script>
