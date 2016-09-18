@@ -91,7 +91,7 @@
 }
   </style>
   <body style="background: #ECF3F4">
-    <audio id="bgmusic" controls="controls" Played="1" src="sound/love.m4a" hidden="true" >
+    <audio id="bgmusic" class="media-audio" src="sound/love.m4a" preload loop="loop">
     不支持audio
     </audio>
     <center>
@@ -176,6 +176,19 @@
     <script type="text/javascript">
       var status = true;
       var floatDlg=document.getElementById("float_dlg");
+
+      function audioAutoPlay(id){
+        var audio = document.getElementById(id);
+        audio.play();
+
+        document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+        }, false);
+        document.addEventListener('YixinJSBridgeReady', function() {
+          audio.play();
+        }, false);
+      }
+    audioAutoPlay('bgmusic');
       
       function fonclick(){
         var bgmusic = document.getElementById("bgmusic");
