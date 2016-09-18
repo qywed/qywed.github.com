@@ -4,7 +4,7 @@
     <title>微喜贴-张琦&邓咏梅</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/base.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
     <script language="javascript">
       var imgUrl = "http://server.fjqyx.com:8079/userPhoto/3105/46950/S003.jpg";  //注意必须是绝对路径
 
@@ -78,9 +78,20 @@
 .next1{ position:absolute; top:150px; right:10px; width:28px; height:51px;z-index:9;cursor:pointer;}
 .mhc{ background:#000; width:100%;opacity:0.5;-moz-opacity:0.5;filter:alpha(Opacity=50); position:absolute; left:0; top:0; display:none;}
 
+#float_dlg{position: fixed;top:10px;left: 20px;animation: spin 6s linear infinite;}
 #bNav, #bNav2{text-align:center;}
+/*动画方法*/
+@keyframes spin {
+0% {
+       transform:rotate(0deg);
+ }
+ 100% {
+       transform:rotate(360deg);
+ }
+}
   </style>
   <body style="background: #ECF3F4">
+    <embed id="bgmusic" Played="1" src="sound/love.m4a" />
     <center>
       <div style="position:relative;text-align:center;">
         <img src="http://m.fjqyx.com/invite/templates/template4/img/cover.png" width="100%"/>
@@ -145,18 +156,38 @@
     </div>
     <p>请在WIFI环境下观看，土豪随意！</p>
     <div style="position:relative">
-        <img src="http://m.fjqyx.com/invite/templates/template4/img/yaoqing.png" width="100%" />
-        <div style="position:absolute;left:30%;bottom:20%;z-index:10" border=1>
-          <font size="2" color="gray">
-          <p>在世界上最美的一刻</p><br />
-          <p>莫过于和我心爱的人</p><br />
-          <p>牵着彼此的手</p><br />
-          <p>编织一段甜蜜的温馨生活</p><br />
-          <p>届时邀请您参加我们的婚礼</p><br />
-          <p>见证我们的爱情</p>
-          </font>
-        </div>
+      <img src="http://m.fjqyx.com/invite/templates/template4/img/yaoqing.png" width="100%" />
+      <div style="position:absolute;left:30%;bottom:20%;z-index:10" border=1>
+        <font size="2" color="gray">
+        <p>在世界上最美的一刻</p><br />
+        <p>莫过于和我心爱的人</p><br />
+        <p>牵着彼此的手</p><br />
+        <p>编织一段甜蜜的温馨生活</p><br />
+        <p>届时邀请您参加我们的婚礼</p><br />
+        <p>见证我们的爱情</p>
+        </font>
       </div>
+    </div>
+    <div id="float_dlg">
+      <img id="fbtn" src="http://m.fjqyx.com/invite/templates/template4/img/music-button.png" onclick="fonclick();">
+    </div>
+    <script type="text/javascript">
+      var status = true;
+      var floatDlg=document.getElementById("float_dlg");
+      
+      function fonclick(){
+        var bgmusic = document.getElementById("bgmusic");
+        alert(floatDlg+","+bgmusic);
+        if (status){          
+          bgmusic.stop();
+          floatDlg.style.webkitAnimationPlayState = "pause";
+        }else{
+          bgmusic.play();
+          floatDlg.style.webkitAnimationPlayState = "running";
+        }
+        status = !status
+      }
+    </script>
     <script type="text/javascript" src="js/pic_tab.js"></script>
     <script type="text/javascript">
     jq('#demo1').banqh({
@@ -179,7 +210,7 @@
       mindire:true,//小图滚动方向（true为水平方向滚动）
       min_picnum:3,//小图显示数量
       pop_up:false//大图是否有弹出框
-    })
+    });
     </script>
     </center>
   </body>
