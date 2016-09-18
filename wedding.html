@@ -91,7 +91,7 @@
 }
   </style>
   <body style="background: #ECF3F4">
-    <embed id="bgmusic" Played="1" src="sound/love.m4a" />
+    <embed id="bgmusic" width="0" height="0" Played="1" src="sound/love.m4a" />
     <center>
       <div style="position:relative;text-align:center;">
         <img src="http://m.fjqyx.com/invite/templates/template4/img/cover.png" width="100%"/>
@@ -177,7 +177,6 @@
       
       function fonclick(){
         var bgmusic = document.getElementById("bgmusic");
-        alert(floatDlg+","+bgmusic);
         if (status){          
           bgmusic.stop();
           floatDlg.style.webkitAnimationPlayState = "pause";
