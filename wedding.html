@@ -6,11 +6,11 @@
     <link href="css/base.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
     <script language="javascript">
-      var imgUrl = "http://server.fjqyx.com:8079/userPhoto/3105/46950/S003.jpg";  //注意必须是绝对路径
+      var imgUrl = "http://m.fjqyx.com/invite/templates/template4/img/cover.png";  //注意必须是绝对路径
 
        var lineLink = "https://qywed.github.io/wedding.html";   //同样，必须是绝对路径
-       var descContent = '时间: 2016-9-28 12:00\r\n地点: 湖北省黄冈市蕲春县张榜镇'; //分享给朋友或朋友圈时的文字简介
-       var shareTitle = '张琦&邓咏梅';  //分享title
+       var descContent = '时间: 2016-9-28 11:30\r\n地点: 湖北省黄冈市蕲春县张榜镇塔林街130号'; //分享给朋友或朋友圈时的文字简介
+       var shareTitle = '微喜贴-张琦&邓咏梅';  //分享title
        var appid = ''; //apiID，可留空
        
        function shareFriend() {
@@ -183,12 +183,13 @@
         </font>
       </div>
     </div>
-    <div background="http://m.fjqyx.com/invite/templates/template4/img/box-border.png">
-      <font size="3">
-        <p>时间: 2016年09月28日</p><br />
-        <p>地点: 湖北省黄冈市蕲春县张榜镇塔林街130号</p>
-      </font>
-    </div>
+      <div style="background: url(http://m.fjqyx.com/invite/templates/template4/img/box-border.png);-moz-background-size:40% 100%;background-size:40% 100%;background-repeat:no-repeat;width:100%;height:200px">
+        <font size="5">
+          <br />
+          <p>时间: 2016年09月28日 11:30</p><br />
+          <p>地点: 湖北省黄冈市蕲春县张榜镇塔林街130号</p>
+        </font>
+      </div>
     <div id="float_dlg" class="floatdlg">
       <img id="fbtn" src="http://m.fjqyx.com/invite/templates/template4/img/music-button.png" onclick="fonclick();">
     </div>
@@ -199,12 +200,18 @@
       function audioAutoPlay(id){
         var audio = document.getElementById(id);
         audio.play();
+        floatDlg.classList.add('ani');
+        pstatus=true;
 
         document.addEventListener("WeixinJSBridgeReady", function () {
                 audio.play();
+                floatDlg.classList.add('ani');
+                pstatus=true;
         }, false);
         document.addEventListener('YixinJSBridgeReady', function() {
           audio.play();
+          floatDlg.classList.add('ani');
+          pstatus=true;
         }, false);
       }
       audioAutoPlay('bgmusic');
